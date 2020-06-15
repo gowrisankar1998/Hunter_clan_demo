@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css">
+
+    {% if title %}
+    <title>Hunter's Clan - {{ title }}</title>
+    {% else %}
+    <title>Hunter's Clan</title>
+    {% endif %}
+
+    <style>
+        body {
+            font-family: Piedra;
+            background-color: #E9D076;
+            margin: 0px;
+        }
+
+        .png {
+            margin-left: 5px;
+            width: 28px;
+            height: 28px;
+        }
+
+        #navigation-bar {
+            background-color: rgb(14, 11, 0) !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+            max-width: 100% !important;
+            min-width: 1000px !important;
+
+        }
+
+        .navbar-brand {
+            font-size: 35px;
+            margin-right: 0px;
+            color: white !important;
+
+        }
+
+        #nav-left,
+        #nav-right {
+            font-size: 20px;
+            padding-left: 5px;
+
+        }
+
+        .nav-link {
+            color: white !important;
+        }
+
+        .forms {
+            padding-left: 35%;
+            padding-top: 6%;
+        }
+
+        body nav div ul li a {
+            text-decoration: none !important;
+        }
+
+        body nav div ul li a:hover,body nav a:hover {
+            text-decoration: underline !important ;
+
+        }
+
+    </style>
+    {% block style_home %}{% endblock style_home %}
+    {% block style_guidelines %}{% endblock style_guidelines %}
+    {% block style_user %}{% endblock style_user %}
+    {% block style_events %}{% endblock style_events %}
+    {% block style_scoreboard %}{% endblock style_scoreboard %}
+    {% block style_login %}{% endblock style_login %}
+    {% block style_registration %}{% endblock style_registration %}
+    {% block style_about %}{% endblock style_about %}
+    {% block style_account %}{% endblock style_account %}
+    {% block style_notification %}{% endblock style_notification %}
+
+
+</head>
+
+<body>
+    <nav id="navigation-bar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('home') }}">Hunter's Clan</a>
+        <div style="padding-top:6px;" class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item " id="nav-left">
+                    <a class="nav-link" href="{{ url_for('guidelines') }}">Guidelines<img class="png" src="{{url_for('static', filename='book.png')}}" /></a>
+                </li>
+                <li class="nav-item" id="nav-left">
+                    <a class="nav-link" href="{{ url_for('events') }}">Events<img class="png" src="{{url_for('static', filename='events.png')}}" /></a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item" id="nav-left">
+                    <a class="nav-link" href="{{ url_for('scoreboard') }}">Scoreboard<img class="png" src="{{url_for('static', filename='scoreboard.png')}}" /></a>
+                </li>
+                {% endif %}
+                <li class="nav-item" id="nav-left">
+                    <a class="nav-link" href="{{ url_for('about') }}">About<img class="png" src="{{url_for('static', filename='about.png')}}" /></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if current_user.is_authenticated %}
+                <li class="nav-item " id="nav-right">
+                    <a class="nav-link" href="{{ url_for('notification') }}">Notification<img class="png" src="{{url_for('static', filename='notifications.png')}}" /></a>
+                </li>
+
+                <li class="nav-item " id="nav-right">
+                    <a class="nav-link" href="{{ url_for('account') }}">Account<img class="png" src="{{url_for('static', filename='account.png')}}" /></a>
+                </li>
+                <li class="nav-item" id="nav-right">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout<img class="png" src="{{url_for('static', filename='logout.png')}}" /></a>
+                </li>
+
+                {% else %}
+                <li class="nav-item " id="nav-right">
+                    <a class="nav-link" href="{{ url_for('notification') }}">Notification<img class="png" src="{{url_for('static', filename='notifications.png')}}" /></a>
+                </li>
+                <li class="nav-item" id="nav-right">
+                    <a class="nav-link" href="{{ url_for('register') }}">Registration<img class="png" src="{{url_for('static', filename='registration.png')}}" /></a>
+                </li>
+                <li class="nav-item " id="nav-right">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login<img class="png" src="{{url_for('static', filename='Login.png')}}" /></a>
+                </li>
+
+                {% endif %}
+            </ul>
+
+        </div>
+        {% block nav_head %}{% endblock nav_head %}
+
+    </nav>
+    {% block body %}{% endblock body%}
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

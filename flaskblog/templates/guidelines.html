@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block style_guidelines %}
+
+<style>
+    .guide {
+        display: block;
+        width: 800px;
+        height: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2%;
+    }
+    li{
+        font-size: 28px;
+    }
+
+
+</style>
+{% endblock style_guidelines %}
+{% block body %}
+<!--Guidelines-->
+<div class="guide">
+    <ol>
+        <li id="point">Register with valid credentials.</li>
+        <li id="point">Login with username and password.</li>
+        <li id="point">Each stage contains multiple challenges having game points respectively. User with highest points will be ranked from top, tie breaks are essentially resolved by time of completion of challenge.</li>
+        <li id="point">Users in the top ranks will be selected for the next round or for announcing winners.</li>
+        <li id="point">Make sure the given Email Id is valid so that we can contact you.</li>
+        <li id="point">User data (username, email, passwords) will be cleared after one Hunt.</li>
+        <li id="point">Decision of Admins will be final.</li>
+        <li id="point">For any clarification participants can dm to Admins ( <a href="https://www.instagram.com/hunters_clan_online/">Instagram</a> ) or mail <a href="mailto:info@example.com?subject=subject&cc=cc@example.com">contact@huntersclan.games</a></li>
+    </ol>
+</div>
+{% endblock body %}

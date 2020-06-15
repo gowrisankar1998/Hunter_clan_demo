@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block style_about %}
+<style>
+    #team{
+        margin-top: 2%;
+    }
+    #main-block{
+        margin-top: 2%;
+    }
+    .rounded-circle{
+        width: 180px;
+        height: 180px;
+    }
+    #second{
+        margin-top: 21%;
+    }
+    #label{
+        margin-top: 4%;
+    }
+</style>
+{% endblock style_about %}
+{% block body %}
+<div style="margin: 0px; !important" class="row">
+    <div id="team" class="col col-12 text-center h3 text-now">TEAM </div>
+    <div class="space-20"></div>
+    <div id="main-block" class="col col-12">
+        <div class="row">
+            <div class="col col-12 col-md-6 col-lg-4 text-center">
+                <div class="row">
+                    <div class="col col-12"><img src="{{url_for('static',filename='afin.png')}}" class="rounded-circle account-img" alt=""></div>
+                </div>
+                <div id="label" class="col col-12 text-center">Afine </div>
+            </div>
+            <div class="col col-12 col-md-6 col-lg-4 text-center">
+                <div class="row">
+                    <div class="col col-12"><img src="{{url_for('static',filename='gowri.png')}}" class="rounded-circle account-img" alt=""></div>
+                </div>
+                <div id="label" class="col col-12 text-center">Gowrisankar P.U</div>
+            </div>
+            <div class="col col-12 col-md-6 col-lg-4 text-center">
+                <div class="row">
+                    <div class="col col-12"><img src="{{url_for('static',filename='joppan.png')}}" class="rounded-circle account-img" alt=""></div>
+                </div>
+                <div id="label" class="col col-12 text-center">Arunjo Malieakkal</div>
+            </div>
+            <div class="col col-12 col-md-6 col-lg-4 text-center">
+                <div id="second" class="row">
+                    <div class="col col-12"><img src="{{url_for('static',filename='dottan.png')}}" class="rounded-circle account-img" alt=""></div>
+                </div>
+                <div id="label" class="col col-12 text-center">Don Jose </div>
+            </div>
+            <div class="col col-12 col-md-6 col-lg-4 text-center">
+                <div id="second" class="row">
+                    <div class="col col-12"><img src="{{url_for('static',filename='akhil.png')}}" class="rounded-circle account-img" alt=""></div>
+                </div>
+                <div id="label" class="col col-12 text-center">Akhil</div>
+            </div>
+            <div class="col col-12 col-md-6 col-lg-4 text-center">
+                <div id="second" class="row">
+                    <div class="col col-12"><img src="{{url_for('static',filename='AB.png')}}" class="rounded-circle account-img" alt=""></div>
+                </div>
+                <div id="label" class="col col-12 text-center">Aiswarya A.B</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

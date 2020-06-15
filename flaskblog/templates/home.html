@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block style_home %}
+<style>
+    .logo {
+        width: 350px;
+        height: 350px;
+    }
+
+    .main-logo {
+        padding-left: 37%;
+        padding-top: 10%;
+    }
+
+    .icon {
+        width: 23px;
+        height: 23px;
+        margin-top: -12px;
+    }
+
+    label {
+        font-size: 30px;
+    }
+
+    #insta {
+        margin-left: 43%;
+    }
+
+</style>
+{% endblock style_home %}
+{% block body %}
+<div class="home">
+    <div class="main-logo"><img class="logo" src="{{url_for('static',filename='logo.png')}}" /></div>
+    <div id="insta">
+        <label>Follow us</label>
+        &nbsp;
+        <a href="https://www.instagram.com/hunters_clan_online/"><img class="icon" src="{{url_for('static',filename='instagram.png')}}" />
+        </a>
+        &nbsp;
+        <a href="https://www.facebook.com/huntersclanonline"><img class="icon" src="{{url_for('static',filename='facebook.png')}}" />
+        </a>
+    </div>
+</div>
+
+{% endblock body %}

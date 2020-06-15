@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block style_notification %}
+<style>
+    .notification{
+        background-color: #f9df8e;
+        margin: 20px 20px 20px 20px;;
+    }
+    .article-title {
+        color: #444444;
+
+    }
+
+    a.article-title:hover {
+        color: #428bca;
+        text-decoration: none;
+    }
+
+    .article-content {
+        white-space: pre-line;
+
+    }
+
+    .article-img {
+        height: 65px;
+        width: 65px;
+        margin: 50px 16px 0px 50px;
+    }
+
+    .article-metadata {
+        padding-bottom: 1px;
+        margin-bottom: 4px;
+        margin-top: 50px;
+
+    }
+
+    .article-metadata a:hover {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .article-svg {
+        width: 25px;
+        height: 25px;
+        vertical-align: middle;
+    }
+
+</style>
+{% endblock style_notification %}
+{% block body %}
+{% for post in posts.items %}
+<div class="notification">
+    <article class="media content-section">
+        <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+                <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+        </div>
+    </article>
+</div>
+{% endfor %}
+{% endblock body %}
